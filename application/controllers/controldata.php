@@ -8,12 +8,13 @@ class Controldata extends CI_Controller {
 		$this->load->model('datamodel');
 	}
 
+	//control get model and view
 	public function index()
 	{
 		$data['semua']=$this->datamodel->data();
 		$this->load->view('tampildata',$data);
 	}
-
+ 
 }
 
 /* End of file controldata.php */
