@@ -23,5 +23,21 @@
 			->where('id', $value)
 			->get();
 		}
+
+		public function insert($value){
+			 $this->db->insert(self::PELL, $value);
+			 return $this->db->affected_rows();
+		}
+
+		public function delete($value){
+			$this->db->where('id', $value)
+			->delete(self::PELL);
+		}
+
+		public function update($value, $isi){
+			$this->db->where('id', $value)
+			->update(self::PELL, $isi);
+		}
+
 	}
 ?>
