@@ -53,20 +53,17 @@
 			
 		}
 
- 
+ 		//get one data and show
 		public function index_get(){
 			$data = $this->Mhs->get_all()->result();
-
 			$this->response($data);
 
 		}
 
-		// public function index_get($id=NULL){
-			
-		// }
-
+		//put one data and show image edit front end change to location image ./uploads
 		public function index_put($id=NULL){
-
+			$data = $this->Mhs->get_one($id)->result();
+			$this->response($data);
 		}
 
 		//deleting gambar from database

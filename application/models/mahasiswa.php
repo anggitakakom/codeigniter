@@ -24,7 +24,11 @@
 		}
 
 		public function get_one($value){
-
+			return $this->db->select('*')
+			->from(self:: MAHA)
+			->where('id', $value)
+			->get();
+			
 		}
 
 		public function edit($value){
