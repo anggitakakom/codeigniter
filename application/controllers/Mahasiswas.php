@@ -59,6 +59,7 @@
 				$data = $this->Mhs->get_all()->result();	
 			}else{
 				$data = $this->Mhs->get_one($id)->result();
+				//with resul to model with get
 			}
 			$this->response($data);
 

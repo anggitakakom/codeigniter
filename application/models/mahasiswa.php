@@ -4,6 +4,7 @@
 	 */
 	class Mahasiswa extends CI_Model
 	{
+		//make nama MAHA to change mahasiswas from database
 		const MAHA = 'mahasiswas';
 
 		function __construct()
@@ -21,6 +22,7 @@
 			return $this->db->select('*')
 			->from(self:: MAHA)
 			->get();
+			//wirh get() because the contoler call result()
 		}
 
 		public function get_one($value){
