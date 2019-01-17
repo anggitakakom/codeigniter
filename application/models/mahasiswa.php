@@ -31,10 +31,17 @@
 			
 		}
 
-		public function edit($value, $isi){
-			return $this->db->where('id', $value)
-			->update(self:: MAHA, $isi);
+		//update
+		public function edit($value, $isi, $gam){
+			//updating gambar 
+			$this->db->where('id', $value);
+			//deleting gambar 
+			unlink("uploads/".$gam);
+			$this->db->update(self:: MAHA, $isi);
+			
+
 		}
+
 
 		//deleting gambar
 		public function delete($value, $gm){

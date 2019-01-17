@@ -66,7 +66,9 @@
 
 		//put one data and show image edit front end change to location image ./uploads
 		public function editmhs_post($id=NULL){
-			// $path = './uploads/';
+
+			$path = './uploads/';
+			$lama = $this->post('lama');
 			$nama = $this->post('nama');
 			$gambar = $_FILES['gambar']['name'];
 
@@ -75,10 +77,7 @@
 				'gambar'=> $gambar
 			];
 
-			// print_r($data);
-			// echo "string :", $id;
-
-			//this code to config image size and upload type file
+			// this code to config image size and upload type file
 
 			$config['upload_path'] = './uploads/';
 			$config['allowed_types'] = 'gif|jpg|png|jpeg';
@@ -97,16 +96,14 @@
 					'gambar'=> $gambar
 				]; 
 			}
-
+			//insert gambar to path to path 
 			@unlink($path.$this->input->post('gambar'));
-
-			// //baris ahir untuk upload foto
-
-			$simpan = $this->Mhs->edit($id, $data);
-			$this->response($simpan);
-
-			
+			//3 argumen function this value to id, data dan gambar lama 
+			$simpan = $this->Mhs->edit($id, $data, $lama);
+			$this->response($simpan);	
 		}
+		//ahir dari update
+
 
 		//deleting gambar from database
 		public function gambar_post($id=NULL){
