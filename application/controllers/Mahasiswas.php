@@ -106,7 +106,7 @@
 
 
 		//deleting gambar from database
-		public function gambar_post($id=NULL){
+		public function mhs_post($id=NULL){
 			$gambar = $this->post('gambar');
 			$data = $this->Mhs->delete($id, $gambar);
 			$this->response($data);
