@@ -54,16 +54,58 @@
 		}
 
  		//get one data and show
-		public function index_get(){
-			$data = $this->Mhs->get_all()->result();
+		public function index_get($id=NULL){
+			if ($is==NULL) {
+				$data = $this->Mhs->get_all()->result();	
+			}else{
+				$data = $this->Mhs->get_one($id)->result();
+			}
 			$this->response($data);
 
 		}
 
 		//put one data and show image edit front end change to location image ./uploads
-		public function index_put($id=NULL){
-			$data = $this->Mhs->get_one($id)->result();
-			$this->response($data);
+		public function editmhs_post($id=NULL){
+			// $path = './uploads/';
+			$nama = $this->post('nama');
+			$gambar = $_FILES['gambar']['name'];
+
+			$data = [
+				'nama' => $nama,
+				'gambar'=> $gambar
+			];
+
+			// print_r($data);
+			// echo "string :", $id;
+
+			//this code to config image size and upload type file
+
+			$config['upload_path'] = './uploads/';
+			$config['allowed_types'] = 'gif|jpg|png|jpeg';
+			$config['max_size']  = '100';
+			$config['max_width']  = '1024';
+			$config['max_height']  = '768';
+			
+			$this->load->library('upload', $config);
+			
+			if ( ! $this->upload->do_upload('gambar')){
+				$error = array('error' => $this->upload->display_errors());
+			}
+			else{
+				$data = [
+					'nama' => $nama,
+					'gambar'=> $gambar
+				]; 
+			}
+
+			@unlink($path.$this->input->post('gambar'));
+
+			// //baris ahir untuk upload foto
+
+			$simpan = $this->Mhs->edit($id, $data);
+			$this->response($simpan);
+
+			
 		}
 
 		//deleting gambar from database

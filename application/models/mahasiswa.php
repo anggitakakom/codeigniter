@@ -31,8 +31,9 @@
 			
 		}
 
-		public function edit($value){
-
+		public function edit($value, $isi){
+			return $this->db->where('id', $value)
+			->update(self:: MAHA, $isi);
 		}
 
 		//deleting gambar
