@@ -28,12 +28,21 @@
 		}
 
 		//get one data with join tabel
+		// public function get_one($value){
+		// 	return $this->db->select('a.id, b.nama, a.date')
+		// 	->from(self::Trx.' a')
+		// 	->join(self::Mhs.' b','a.id_mahasiswa=b.id')
+		// 	->where('a.id', $value)
+		// 	//dont't ambigu in join tabel because this tabel casesensitive
+		// 	->get();
+		// }
+
 		public function get_one($value){
 			return $this->db->select('a.id, b.nama, a.date')
 			->from(self::Trx.' a')
 			->join(self::Mhs.' b','a.id_mahasiswa=b.id')
-			->where('a.id', $value)
-			//dont't ambigu in join tabel because this tabel casesensitive
+			->where('a.id_mahasiswa', $value)
+			//seledted clause where and show value with id mahasiswa trus kondision
 			->get();
 		}
 

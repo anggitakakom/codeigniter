@@ -10,6 +10,7 @@
 		{
 			parent:: __construct();
 			$this->load->model('Mahasiswa', 'Mhs');
+			$this->load->model('Transaksi', 'Trx');
 		}
 
 		//function to post gambar where gambar type is file
@@ -42,26 +43,59 @@
 					'gambar'=> $gambar
 				]; 
 			}
-
-
-
 			$simpan = $this->Mhs->insert($data);
 			$this->response($simpan);
-
-			
-
-			
 		}
 
  		//get one data and show
 		public function index_get($id=NULL){
-			if ($is==NULL) {
+			if ($id==NULL) {
 				$data = $this->Mhs->get_all()->result();	
+				$this->response($data);
 			}else{
-				$data = $this->Mhs->get_one($id)->result();
+				//get one not array controler
+				// $data = $this->Mhs->get_one($id)->result();
+
+				//get one data in array
+				$result = $this->Mhs->get_one(array('id'=>$id));
+
+					if ($result->num_rows() == 1) {
+
+						// current customer
+						$mahasiswa = $result->row();
+
+						// get customer subcription by id
+						$result = $this->Trx->get_one($mahasiswa->id);
+
+						//check value this result
+						// $anggit = $result->row();
+						// $this->response($anggit);
+
+
+						if ($result->num_rows() <> 0) {
+							$packages = $result->result();
+						} else {
+							$packages = array();
+						}
+
+						//check value data mahasiswa and package	
+						// $data = $mahasiswa;
+						// $data = $packages;
+						// $this->response($data);
+
+
+						$data = (object) array_merge( (array)$mahasiswa, array( 'Transaksi'=>$packages) );
+						
+					} else {
+						$data = array('message' => 'data not found');
+						$status = 404;
+					}
+
+				// $this->response($result);
+				// $this->response($data);
 				//with resul to model with get
 			}
-			$this->response($data);
+			
 
 		}
 

@@ -25,13 +25,28 @@
 			//wirh get() because the contoler call result()
 		}
 
-		public function get_one($value){
-			return $this->db->select('*')
-			->from(self:: MAHA)
-			->where('id', $value)
-			->get();
+		//select not array data
+		// public function get_one($value){
+		// 	return $this->db->select('*')
+		// 	->from(self:: MAHA)
+		// 	->where('id',$value)
+		// 	->get();
+		// }
+
+		//select with array simple
+		// public function get_one($value){
+		// 	return $this->db->select('*')
+		// 	->from(self:: MAHA)
+		// 	->where($value)
+		// 	->get();
+		// }
+
+
+		//select get one whit array because id seleh with controler	
+		public function get_one($serialize){
+			return $this->db->get_where(self::MAHA, $serialize);
+		} 
 			
-		}
 
 		//update
 		public function edit($value, $isi, $gam){
