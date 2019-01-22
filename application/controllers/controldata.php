@@ -7,7 +7,6 @@ class Controldata extends CI_Controller {
 		parent::__construct();
 		$this->load->model('datamodel');
 	}
-
 	//control get model and view
 	public function index()
 	{
