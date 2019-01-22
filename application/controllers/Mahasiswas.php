@@ -3,6 +3,17 @@
 	/**
 	 * 
 	 */
+
+	// simple crud res api yang dibutuhkan 
+	// - config/autoload $autoload['libraries'] = array('database');
+	// - config/config $config['subclass_prefix'] = 'REST_';
+	// - config/database untuk setting conek ke mysql
+	// - rest merupakan file tambahan
+	// - language yang dipakai english
+	// - libraries/Rest_Controler yang merupakan file tambahan
+
+	// untuk yang menjadi satu bagian yaitu : mahasiswa, pelajaran dan transaksi baik controler dan model
+
 	class Mahasiswas extends REST_Controller
 	{
 		

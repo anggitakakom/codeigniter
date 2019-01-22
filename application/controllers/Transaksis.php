@@ -22,7 +22,14 @@ class Transaksis extends REST_Controller
 			'id_mahasiswa' => $this->post('id_mahasiswa'),
 			'id_matakuliah' => $this->post('id_matakuliah')
 		];
-		$this->response('simpan');
+		$simpan = $this->Tran->insert($data);
+		$hasil=[
+			'status' => 200,
+            'message' => 'Post Data',
+            'errorMessage' => 'Null',
+            'data' => $data,
+		];
+		$this->response($hasil);
 	} 
 
 	//kondision get_all or get_one

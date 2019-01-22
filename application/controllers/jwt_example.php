@@ -2,6 +2,11 @@
     require APPPATH . '/libraries/REST_Controller.php';
     require APPPATH . '/libraries/ImplementJwt.php';
     //link yang menuju implementJWT untuk melakukan decode dan encode terhadap data
+    //untuk pembuatan jwt yang diperlukan adalah
+    // 2 file di folder library
+    // - JWt
+    // - ImplementJwt
+
 class jwt_example extends REST_Controller
 {
     public function __construct()
