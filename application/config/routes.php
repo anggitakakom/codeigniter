@@ -52,3 +52,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+$route['authentication/login'] = 'authentication/login';
+$route['authentication/registration'] = 'authentication/registration';
+$route['authentication/user/(:num)(\.)([a-zA-Z0-9_-]+)(.*)'] = 'authentication/user/id/$1/format/$3$4';
