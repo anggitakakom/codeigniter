@@ -77,8 +77,12 @@ $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
 	'username' => 'root',
-	'password' => '',
-	'database' => 'Anggit',
+	'password' => 'root',
+	//perbedaan menggunakan xampp dan mamp
+	// 'password' => 'root',
+	// mamp menggunakan parword root sedangkan untuk default bawaan xampp tidak ada
+	'database' => 'anggit',
+	//saya rubah hurufnya menjadi kecil karena saya pindah komputer
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

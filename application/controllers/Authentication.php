@@ -4,13 +4,14 @@ if (!defined('BASEPATH')) exit('No direct script access allowed');
 //pwnggunaan AuthLogin Codeigniter yang ditambahkan dan diedit
 // - Cotroler Authenticate
 // - model user
-
+ 
 // - config/rest
 //     * $config['rest_enable_keys'] = FALSE; DIUBAH $config['rest_enable_keys'] = TRUE;
 //     * $config['rest_auth'] = FALSE; DIUBAh  $config['rest_auth'] = 'basic';
 //     * $config['auth_source'] = 'ldap'; DIUBAH $config['auth_source'] = '';
+
 // -config/Routes penambahan kode program
-//     $route['api/authentication/login'] = 'api/authentication/login';
+// $route['api/authentication/login'] = 'api/authentication/login';
 // $route['api/authentication/registration'] = 'api/authentication/registration';
 // $route['api/authentication/user/(:num)(\.)([a-zA-Z0-9_-]+)(.*)'] = 'api/authentication/user/id/$1/format/$3$4';
 

@@ -11,7 +11,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 $config['force_https'] = FALSE;
-
+ 
 /*
 |--------------------------------------------------------------------------
 | REST Output Format
@@ -110,7 +110,8 @@ $config['rest_realm'] = 'REST API';
 |           authorization key
 |
 */
-$config['rest_auth'] = 'basic';
+$config['rest_auth'] = FALSE;
+// $config['rest_auth'] = 'basic';
 //ini yang diubah
 
 /*
@@ -127,7 +128,8 @@ $config['rest_auth'] = 'basic';
 | Note: If 'rest_auth' is set to 'session' then change 'auth_source' to the name of the session variable
 |
 */
-$config['auth_source'] = '';
+$config['auth_source'] = 'ldap';
+// $config['auth_source'] = '';
 
 /*
 |--------------------------------------------------------------------------
@@ -325,8 +327,9 @@ $config['rest_keys_table'] = 'keys';
 |   ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 |
 */
-$config['rest_enable_keys'] = TRUE;
-//ini yang diubah
+$config['rest_enable_keys'] = FALSE;
+// $config['rest_enable_keys'] = TRUE;
+//ini yang diubah untuk login auth
 
 /*
 |--------------------------------------------------------------------------
