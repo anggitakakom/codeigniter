@@ -29,6 +29,12 @@
 			 return $this->db->affected_rows();
 		}
 
+		//untuk melakukan multi insert menggunakan insert_batch
+		public function multi_insert($value){
+			$this->db->insert_batch(self::PELL, $value);
+			return $this->db->affected_rows();
+		}
+
 		public function delete($value){
 			$this->db->where('id', $value)
 			->delete(self::PELL);

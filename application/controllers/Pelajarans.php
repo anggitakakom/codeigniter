@@ -90,6 +90,22 @@
 
 		// untuk melakukan post banyak data
 		public function multi_post(){
+			$post = json_decode(trim(file_get_contents('php://input')), true);
+			$value = $post['post'];
+			$data = array(); //deifnisi duku ada sebagay array untuk menyimpan
+			foreach ($value as $key) { //menggunakan foreach untuk mengulang data
+				$data[] = array( //data[]untuk menyimpan dari perulangan
+				'matakuliah'	=> $key['matakuliah'],
+				'sks'		 	=> $key['sks']
+				);	
+			}
+			$save_detail=$this->pela->multi_insert($data);  
+	        $hasil = [
+	            'status' => 200,
+	            'message' => 'Order Succes',
+	            'Detail Order' => $data
+	        ];
+	        $this->response($hasil);
 			
 		}
 
