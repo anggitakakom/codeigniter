@@ -103,7 +103,7 @@
 					}
 
 				// $this->response($result);
-				// $this->response($data);
+				$this->response($data);
 				//with resul to model with get
 			}
 			

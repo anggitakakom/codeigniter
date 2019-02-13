@@ -88,6 +88,11 @@
 
 		}
 
+		// untuk melakukan post banyak data
+		public function multi_post(){
+			
+		}
+
 		//function delete data with id
 		public function index_delete($id=NULL){
 			$data = $this->pela->delete($id);
