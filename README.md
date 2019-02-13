@@ -14,3 +14,5 @@ fungsi dari kode dan hubungan antar tabel
 - relasi tabel and get value any table
 - build api
 - data json
+- input muti data with api
+- transaksi with detail 
