@@ -14,6 +14,8 @@ class Transaksis extends REST_Controller
 	{
 		parent:: __construct();
 		$this->load->model('Transaksi', 'Tran');
+		$this->load->model('Detail_transaksis','Det');
+		//untuk terhubung kepada model detail_transaksi
 	}
 
 	//post data to model and adatabase
@@ -31,6 +33,35 @@ class Transaksis extends REST_Controller
 		];
 		$this->response($hasil);
 	} 
+
+	// ini untuk 1 mahasiswa mengambil banyak matakuliah
+	public function krs_post(){
+		$krs = [
+			'id_mahasiswa' => $this->post('id_mahasiswa')
+		];
+		//susah untuk ditampilkans ebagai response karena data array ding menggunakan data dalam bentuk biasa dekode array
+
+		//menampung semua data dalam array
+		$simpan = $this->Tran->insert($krs);
+		$id = $this->db->insert_id();
+		// insert_id() = untuk mendapatkan id seletah insert terhadap tabel transaksi
+		$post = json_decode(trim(file_get_contents('php://input')), true);
+		//mengubah format dari data array agar bisa diambil 1 data berdasarkan value
+		$pel = $post['pelajaran'];
+		//mengambil nilai banyaknya data pelajaran yang diambil
+		$data = array();
+		foreach ($pel as $key) {
+			$data[]=array(
+				'id_transaksis' => $id,
+				'id_pelajarans' => $key['id_pelajarans']
+			);
+		}
+		$krs = $this->Det->insert($data);
+		$this->response(array(
+			'Message' => 'Sukses',
+			'pelajaran'	=> $data
+		), 200);
+	}
 
 	//kondision get_all or get_one
 	public function index_get($id=NULL){

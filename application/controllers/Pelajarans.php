@@ -105,9 +105,11 @@
 	            'message' => 'Order Succes',
 	            'Detail Order' => $data
 	        ];
-	        $this->response($hasil);
-			
+	        $this->response($hasil);	
 		}
+
+
+
 
 		//function delete data with id
 		public function index_delete($id=NULL){
