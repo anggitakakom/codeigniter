@@ -16,3 +16,5 @@ fungsi dari kode dan hubungan antar tabel
 - data json
 - input muti data with api
 - transaksi with detail 
+- login with google
+- upload file xls to database
