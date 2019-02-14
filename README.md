@@ -1,4 +1,4 @@
-# codeigniter Rest Api
+# Codeigniter Rest Api
 tutorial crud and restfull api with code igniter dari dasar sampai  level medium
 dan dalam kode disertakan komentar komentar untuk mempermudah dalam memeahami 
 fungsi dari kode dan hubungan antar tabel
