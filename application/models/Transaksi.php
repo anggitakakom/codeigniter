@@ -48,7 +48,7 @@
 
 		// model untuk get one data transaksi to detail
 		public function krs_get_one($id){
-			
+			return $this->db->getwhere(self::Trx, $id);
 		}
 
 		//getl all tabel and join 3 tabel

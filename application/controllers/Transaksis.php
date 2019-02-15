@@ -65,7 +65,7 @@ class Transaksis extends REST_Controller
 
 	// untuk melihat hasil dari detail transaksi mahasiswa mengambil berapa mata pelajaran
 	public function krs_get($id=NULL){
-
+		
 	}
 
 	//kondision get_all or get_one
