@@ -46,6 +46,11 @@
 			->get();
 		}
 
+		// model untuk get one data transaksi to detail
+		public function krs_get_one($id){
+			
+		}
+
 		//getl all tabel and join 3 tabel
 		public function get_semua(){
 			return $this->db->select('a.id, b.nama, c.matakuliah, a.date')

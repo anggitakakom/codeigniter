@@ -19,6 +19,11 @@
 	    	return $this->db->affected_rows();
 	    }
 
+	    //melihat jumlah masuswa yang mengambil matakuliah berdasarkan id mahasiswa
+	    public function get_detail_one($id_transaksi){
+
+	    }
+
 	    
 
 	}
